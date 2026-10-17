@@ -1,0 +1,7 @@
+ALTER TABLE lakehouse.benchmark.lineitem_files_20261017_170959 EXECUTE optimize(file_size_threshold => '100MB');
+
+ALTER TABLE EXECUTE
+"metric_name","metric_value"
+"rewritten_data_files_count","24"
+"removed_delete_files_count","0"
+"added_data_files_count","1"

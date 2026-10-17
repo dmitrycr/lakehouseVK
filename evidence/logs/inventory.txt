@@ -1,0 +1,43 @@
+$ pwd
+/Users/dmitriy/Documents/vkHome/lakehouse
+
+$ uname -a
+Darwin MacBook-Air-Dmitrij-2.local 24.5.0 Darwin Kernel Version 24.5.0: Tue Apr 22 19:54:43 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T8132 arm64
+
+$ sw_vers
+ProductName:		macOS
+ProductVersion:		15.5
+BuildVersion:		24F74
+
+$ df -h .
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   143Gi    59Gi    71%    2.1M  615M    0%   /System/Volumes/Data
+
+$ docker --version
+Docker version 28.4.0, build d8eb465
+
+$ docker compose version
+Docker Compose version v2.39.4-desktop.1
+
+$ docker compose ps -a
+NAME                                IMAGE                                        COMMAND                  SERVICE              CREATED       STATUS                   PORTS
+vk-lakehouse-lakekeeper-1           quay.io/lakekeeper/catalog:v0.14.0           "/home/nonroot/lakek…"   lakekeeper           2 hours ago   Up 2 hours (healthy)     127.0.0.1:8181->8181/tcp
+vk-lakehouse-lakekeeper-migrate-1   quay.io/lakekeeper/catalog:v0.14.0           "/home/nonroot/lakek…"   lakekeeper-migrate   2 hours ago   Exited (0) 2 hours ago   
+vk-lakehouse-minio-1                dappros/minio:RELEASE.2025-09-07T16-13-09Z   "/usr/bin/docker-ent…"   minio                2 hours ago   Up 2 hours               127.0.0.1:9000-9001->9000-9001/tcp
+vk-lakehouse-minio-init-1           amazon/aws-cli:2.36.44                       "/bin/sh -ec 'until …"   minio-init           2 hours ago   Exited (0) 2 hours ago   
+vk-lakehouse-postgres-1             postgres:17                                  "docker-entrypoint.s…"   postgres             2 hours ago   Up 2 hours (healthy)     5432/tcp
+vk-lakehouse-trino-1                trinodb/trino:484                            "/usr/lib/trino/bin/…"   trino                2 hours ago   Up 2 hours (healthy)     127.0.0.1:8080->8080/tcp
+
+$ docker system df
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          6         5         5.387GB   1.15GB (21%)
+Containers      6         4         6.148MB   45.06kB (0%)
+Local Volumes   36        2         1.792GB   764.7MB (42%)
+Build Cache     1         0         40.55MB   40.55MB
+
+$ docker info --format CPUs={{.NCPU}} Memory={{.MemTotal}}
+CPUs=10 Memory=8218034176
+
+$ git status --short --branch
+fatal: not a git repository (or any of the parent directories): .git
+

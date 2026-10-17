@@ -1,0 +1,4 @@
+SELECT count(*) AS rows FROM lakehouse.gold.q3_top_orders;
+
+"rows"
+"10"

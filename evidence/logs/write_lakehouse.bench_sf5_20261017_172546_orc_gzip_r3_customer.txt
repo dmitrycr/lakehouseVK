@@ -1,0 +1,3 @@
+CREATE TABLE lakehouse.bench_sf5_20261017_172546_orc_gzip_r3.customer WITH (format='ORC',compression_codec='GZIP') AS SELECT * FROM tpch.sf5.customer;
+
+CREATE TABLE: 750000 rows

@@ -1,0 +1,3 @@
+CREATE TABLE lakehouse.bench_sf5_20261017_172546_orc_zstd_r1.customer WITH (format='ORC',compression_codec='ZSTD') AS SELECT * FROM tpch.sf5.customer;
+
+CREATE TABLE: 750000 rows

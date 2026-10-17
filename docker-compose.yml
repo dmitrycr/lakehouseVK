@@ -1,0 +1,99 @@
+name: vk-lakehouse
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: lakekeeper
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: lakekeeper
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lakekeeper -d lakekeeper"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+
+  minio:
+    image: dappros/minio:RELEASE.2025-09-07T16-13-09Z
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set MINIO_ROOT_USER in .env}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set MINIO_ROOT_PASSWORD in .env}
+      MINIO_REGION_NAME: local-01
+    ports:
+      - "127.0.0.1:9000:9000"
+      - "127.0.0.1:9001:9001"
+    volumes:
+      - minio_data:/data
+
+  minio-init:
+    image: amazon/aws-cli:2.36.44
+    depends_on:
+      minio:
+        condition: service_started
+    environment:
+      AWS_ACCESS_KEY_ID: ${MINIO_ROOT_USER}
+      AWS_SECRET_ACCESS_KEY: ${MINIO_ROOT_PASSWORD}
+      AWS_DEFAULT_REGION: local-01
+      AWS_EC2_METADATA_DISABLED: "true"
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - |
+        until aws --endpoint-url http://minio:9000 s3api list-buckets >/dev/null 2>&1; do
+          sleep 2
+        done
+        if ! aws --endpoint-url http://minio:9000 s3api head-bucket --bucket lakehouse >/dev/null 2>&1; then
+          aws --endpoint-url http://minio:9000 s3api create-bucket --bucket lakehouse --create-bucket-configuration LocationConstraint=local-01
+        fi
+    restart: "no"
+
+  lakekeeper-migrate:
+    image: quay.io/lakekeeper/catalog:v0.14.0
+    command: ["migrate"]
+    environment: &lakekeeper_env
+      LAKEKEEPER__PG_ENCRYPTION_KEY: ${LAKEKEEPER_PG_ENCRYPTION_KEY:?Set LAKEKEEPER_PG_ENCRYPTION_KEY in .env}
+      LAKEKEEPER__PG_DATABASE_URL_READ: "postgresql://lakekeeper:${POSTGRES_PASSWORD}@postgres:5432/lakekeeper"
+      LAKEKEEPER__PG_DATABASE_URL_WRITE: "postgresql://lakekeeper:${POSTGRES_PASSWORD}@postgres:5432/lakekeeper"
+      RUST_LOG: info
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+
+  lakekeeper:
+    image: quay.io/lakekeeper/catalog:v0.14.0
+    command: ["serve"]
+    environment: *lakekeeper_env
+    ports:
+      - "127.0.0.1:8181:8181"
+    depends_on:
+      lakekeeper-migrate:
+        condition: service_completed_successfully
+      minio-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "/home/nonroot/lakekeeper", "healthcheck"]
+      interval: 5s
+      timeout: 8s
+      retries: 12
+      start_period: 5s
+
+  trino:
+    image: trinodb/trino:484
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./trino/catalog/lakehouse.properties:/etc/trino/catalog/lakehouse.properties:ro
+      - ./trino/catalog/cache_on.properties:/etc/trino/catalog/cache_on.properties:ro
+      - ./trino/catalog/cache_off.properties:/etc/trino/catalog/cache_off.properties:ro
+    depends_on:
+      lakekeeper:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  minio_data:

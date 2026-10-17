@@ -1,0 +1,19 @@
+SHOW CREATE TABLE lakehouse.bronze.customer;
+
+"Create Table"
+"CREATE TABLE lakehouse.bronze.customer (
+   custkey bigint,
+   name varchar,
+   address varchar,
+   nationkey bigint,
+   phone varchar,
+   acctbal double,
+   mktsegment varchar,
+   comment varchar
+)
+WITH (
+   compression_codec = 'ZSTD',
+   format = 'PARQUET',
+   format_version = 2,
+   location = 's3://lakehouse/warehouse/customer-afa9b97c8ac045189b6a13afcfe54d74'
+)"

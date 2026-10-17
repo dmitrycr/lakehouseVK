@@ -1,0 +1,3 @@
+ALTER TABLE lakehouse.silver.q3_schema_demo_20261017_165837 ADD COLUMN source_system VARCHAR;
+
+ADD COLUMN

@@ -1,0 +1,3 @@
+PASS: Python syntax, shell syntax, Markdown targets, CSV row counts, secret scan and .env excluded from Git.
+PASS: git diff --cached --check with raw evidence whitespace preserved via .gitattributes.
+Git initialized on main; files staged. user.name and user.email are not configured; no remote is configured. No commit or push performed.

@@ -1,0 +1,4 @@
+SELECT count(*) AS differences FROM ((SELECT * FROM lakehouse.silver.q3_schema_demo_20261017_165837 FOR VERSION AS OF 3588371785330260403 EXCEPT SELECT * FROM lakehouse.silver.q3_schema_demo_20261017_165837_restored) UNION ALL (SELECT * FROM lakehouse.silver.q3_schema_demo_20261017_165837_restored EXCEPT SELECT * FROM lakehouse.silver.q3_schema_demo_20261017_165837 FOR VERSION AS OF 3588371785330260403));
+
+"differences"
+"0"

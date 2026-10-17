@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+__pycache__/
+*.pyc
+superset_home/
+*.raw
+*.qcow2

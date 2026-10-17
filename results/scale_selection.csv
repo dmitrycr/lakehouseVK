@@ -1,0 +1,3 @@
+scale,reference_status,reason,log_file
+10,failed,Trino per-node query memory limit 1.84GB; no tables written,evidence/logs/reference_sf10_20261017_172411.txt
+5,passed,"Reduced scale selected; full matrix, Medallion, Superset and report complete",evidence/logs/reference_sf5_20261017_172546.txt

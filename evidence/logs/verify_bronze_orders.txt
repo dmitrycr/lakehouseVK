@@ -1,0 +1,4 @@
+SELECT count(*) AS rows FROM lakehouse.bronze.orders;
+
+"rows"
+"1500000"

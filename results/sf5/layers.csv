@@ -1,0 +1,6 @@
+layer,table,rows,files,bytes,mib
+bronze,lakehouse.bench_sf5_20261017_172546_parquet_zstd_r1.customer,750000,2,38050048,36.287353515625
+bronze,lakehouse.bench_sf5_20261017_172546_parquet_zstd_r1.orders,7500000,8,183386254,174.89076042175293
+bronze,lakehouse.bench_sf5_20261017_172546_parquet_zstd_r1.lineitem,29999795,8,750112919,715.3634252548218
+silver,lakehouse.medallion_sf5_20261017_172546.q3_order_lines,150615,1,2282669,2.1769227981567383
+gold,lakehouse.medallion_sf5_20261017_172546.q3_top_orders,10,1,854,0.0008144378662109375

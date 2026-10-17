@@ -1,0 +1,5 @@
+format,codec,mib,wall_s,source
+PARQUET,ZSTD,142.35,11.2,Agent.md historical user measurements; rounded
+PARQUET,GZIP,136.29,18.13,Agent.md historical user measurements; rounded
+ORC,ZSTD,153.69,13.31,Agent.md historical user measurements; rounded
+ORC,GZIP,142.71,19.5,Agent.md historical user measurements; rounded

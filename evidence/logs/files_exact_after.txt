@@ -1,0 +1,4 @@
+SELECT count(*) AS rows,sum(orderkey) AS keys,checksum(ROW(orderkey,partkey,suppkey,linenumber,quantity,extendedprice,discount,tax,returnflag,linestatus,shipdate,commitdate,receiptdate,shipinstruct,shipmode,comment)) AS checksum,sum(CAST(extendedprice AS DECIMAL(20,2))) AS exact_price,sum(CAST(discount AS DECIMAL(4,2))) AS exact_discounts FROM lakehouse.benchmark.lineitem_files_20261017_170959;
+
+"rows","keys","checksum","exact_price","exact_discounts"
+"6001215","18005322964949","a8 b8 7e e0 2d 96 f1 d9","229577310901.20","300057.33"

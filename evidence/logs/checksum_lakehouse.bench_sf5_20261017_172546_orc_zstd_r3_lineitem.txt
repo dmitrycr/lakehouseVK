@@ -1,0 +1,4 @@
+SELECT count(*) AS rows,sum(orderkey) AS key_sum,checksum(ROW(t.orderkey,t.partkey,t.suppkey,t.linenumber,t.quantity,t.extendedprice,t.discount,t.tax,t.returnflag,t.linestatus,t.shipdate,t.commitdate,t.receiptdate,t.shipinstruct,t.shipmode,t.comment)) AS checksum FROM lakehouse.bench_sf5_20261017_172546_orc_zstd_r3.lineitem t;
+
+"rows","key_sum","checksum"
+"29999795","450052359271164","a3 70 2f 11 bd 32 14 78"

@@ -1,0 +1,6 @@
+SELECT count(*) AS rows,sum(custkey) AS key_sum,checksum(ROW(t.*)) AS checksum FROM lakehouse.bench_20261017_165837_parquet_zstd_r1.customer t;
+
+Query 20261017_165907_00123_eich5 failed: line 1:62: label.* syntax is only supported as the only argument of row pattern count function
+LINE 1: SELECT count(*) AS rows,sum(custkey) AS key_sum,checksum(ROW(t.*)) AS checksum FROM lakehouse.bench_20261017_165837_parquet_zstd_r1.customer t
+                                                                     ^
+

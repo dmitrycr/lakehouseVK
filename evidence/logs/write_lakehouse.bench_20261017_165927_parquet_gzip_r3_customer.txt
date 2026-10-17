@@ -1,0 +1,3 @@
+CREATE TABLE lakehouse.bench_20261017_165927_parquet_gzip_r3.customer WITH (format='PARQUET',compression_codec='GZIP') AS SELECT * FROM tpch.sf1.customer;
+
+CREATE TABLE: 150000 rows

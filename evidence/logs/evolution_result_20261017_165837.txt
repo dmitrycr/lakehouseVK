@@ -1,0 +1,4 @@
+SELECT (SELECT count(*) FROM lakehouse.silver.q3_schema_demo_20261017_165837) AS current_rows,(SELECT count(*) FROM lakehouse.silver.q3_schema_demo_20261017_165837 WHERE source_system IS NULL) AS old_nulls,(SELECT count(*) FROM lakehouse.silver.q3_schema_demo_20261017_165837 FOR VERSION AS OF 3588371785330260403) AS historic_rows,(SELECT count(*) FROM lakehouse.silver.q3_schema_demo_20261017_165837_restored) AS restored_rows;
+
+"current_rows","old_nulls","historic_rows","restored_rows"
+"101","100","100","100"

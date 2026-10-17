@@ -1,0 +1,4 @@
+SELECT (SELECT count(*) FROM lakehouse.benchmark.schema_demo) AS current_rows,(SELECT count(*) FROM lakehouse.benchmark.schema_demo FOR VERSION AS OF 3054311289263189975) AS historic_rows;
+
+"current_rows","historic_rows"
+"101","100"

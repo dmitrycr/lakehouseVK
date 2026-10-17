@@ -1,0 +1,43 @@
+-- Bronze sources are the first PARQUET/ZSTD benchmark realization; existing data is retained.
+
+CREATE SCHEMA IF NOT EXISTS lakehouse.medallion_sf5_20261017_172546;
+
+CREATE TABLE IF NOT EXISTS lakehouse.medallion_sf5_20261017_172546.q3_order_lines
+WITH (
+    format = 'PARQUET',
+    compression_codec = 'ZSTD'
+) AS
+SELECT c.custkey,
+       l.orderkey,
+       l.linenumber,
+       o.orderdate,
+       o.shippriority,
+       l.extendedprice,
+       l.discount,
+       l.extendedprice * (1 - l.discount) AS line_revenue
+FROM lakehouse.bench_sf5_20261017_172546_parquet_zstd_r1.customer c
+JOIN lakehouse.bench_sf5_20261017_172546_parquet_zstd_r1.orders o ON c.custkey = o.custkey
+JOIN lakehouse.bench_sf5_20261017_172546_parquet_zstd_r1.lineitem l ON l.orderkey = o.orderkey
+WHERE c.mktsegment = 'BUILDING'
+    AND o.orderdate < DATE '1995-03-15'
+    AND l.shipdate > DATE '1995-03-15'
+    AND l.extendedprice IS NOT NULL
+    AND l.discount IS NOT NULL;
+
+CREATE TABLE IF NOT EXISTS lakehouse.medallion_sf5_20261017_172546.q3_top_orders
+WITH (
+    format = 'PARQUET',
+    compression_codec = 'ZSTD'
+) AS
+SELECT orderkey,
+       sum(line_revenue) revenue,
+       orderdate,
+       shippriority
+FROM lakehouse.medallion_sf5_20261017_172546.q3_order_lines
+GROUP BY orderkey,
+         orderdate,
+         shippriority
+ORDER BY revenue DESC,
+         orderdate,
+         orderkey
+LIMIT 10;

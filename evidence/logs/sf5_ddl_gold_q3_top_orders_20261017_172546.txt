@@ -1,0 +1,15 @@
+SHOW CREATE TABLE lakehouse.medallion_sf5_20261017_172546.q3_top_orders;
+
+"Create Table"
+"CREATE TABLE lakehouse.medallion_sf5_20261017_172546.q3_top_orders (
+   orderkey bigint,
+   revenue double,
+   orderdate date,
+   shippriority integer
+)
+WITH (
+   compression_codec = 'ZSTD',
+   format = 'PARQUET',
+   format_version = 2,
+   location = 's3://lakehouse/warehouse/q3_top_orders-3884b12c5afe4250b054c872f286e850'
+)"

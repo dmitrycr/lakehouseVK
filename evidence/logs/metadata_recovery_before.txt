@@ -1,0 +1,4 @@
+SELECT count(*) AS manifests,sum(length) AS manifest_bytes FROM lakehouse.benchmark."lineitem_files_20261017_170959$all_manifests" WHERE reference_snapshot_id=1284407803169840629;
+
+"manifests","manifest_bytes"
+"24","198088"

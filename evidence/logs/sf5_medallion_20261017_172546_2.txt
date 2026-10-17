@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS lakehouse.medallion_sf5_20261017_172546.q3_top_orders WITH (format='PARQUET',compression_codec='ZSTD') AS
+SELECT orderkey,sum(line_revenue) revenue,orderdate,shippriority FROM lakehouse.medallion_sf5_20261017_172546.q3_order_lines
+GROUP BY orderkey,orderdate,shippriority ORDER BY revenue DESC,orderdate,orderkey LIMIT 10;
+
+CREATE TABLE: 10 rows

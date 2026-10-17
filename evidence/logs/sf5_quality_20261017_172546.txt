@@ -1,0 +1,4 @@
+SELECT count(*) AS rows,count(DISTINCT orderkey) AS orders,sum(CAST(line_revenue AS DECIMAL(24,6))) AS revenue,count_if(extendedprice IS NULL OR discount IS NULL) AS nulls FROM lakehouse.medallion_sf5_20261017_172546.q3_order_lines;
+
+"rows","orders","revenue","nulls"
+"150615","57097","5465320714.208200","0"

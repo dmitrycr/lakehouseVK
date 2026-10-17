@@ -1,0 +1,12 @@
+Loaded your LOCAL configuration at [/app/pythonpath/superset_config.py]
+2026-10-17 17:02:58,024:WARNING:superset.initialization:We haven't found any Content Security Policy (CSP) defined in the configurations. Please make sure to configure CSP using the TALISMAN_ENABLED and TALISMAN_CONFIG keys or any other external software. Failing to configure CSP have serious security implications. Check https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP for more information. You can disable this warning using the CONTENT_SECURITY_POLICY_WARNING key.
+/app/.venv/lib/python3.10/site-packages/flask_limiter/extension.py:324: UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+  warnings.warn(
+2026-10-17 17:03:00,007:INFO:alembic.runtime.migration:Context impl SQLiteImpl.
+2026-10-17 17:03:00,009:INFO:alembic.runtime.migration:Will assume non-transactional DDL.
+2026-10-17 17:03:01,154:INFO:superset.app:Syncing configuration to database...
+2026-10-17 17:03:01,198:INFO:superset.app:Configuration sync to database completed successfully
+LAB_RESULT {"ids": {"database_id": 1, "dataset_id": 1, "chart_id": 1, "dashboard_id": 1}, "sql": "SELECT mktsegment, count(*) AS customer_count FROM lakehouse.bronze.customer GROUP BY mktsegment ORDER BY customer_count DESC", "status": "success", "data": [{"mktsegment": "HOUSEHOLD", "customer_count": 30189}, {"mktsegment": "BUILDING", "customer_count": 30142}, {"mktsegment": "FURNITURE", "customer_count": 29968}, {"mktsegment": "MACHINERY", "customer_count": 29949}, {"mktsegment": "AUTOMOBILE", "customer_count": 29752}], "columns": [{"column_name": "mktsegment", "name": "mktsegment", "type": "VARCHAR", "type_generic": 1, "is_dttm": false}, {"column_name": "customer_count", "name": "customer_count", "type": "BIGINT", "type_generic": 0, "is_dttm": false}]}
+CHART_STATUS 200
+DASHBOARD_HTTP 200
+CHART_DATA [{"orderkey": 2456423, "Revenue": 406181.0111}, {"orderkey": 3459808, "Revenue": 405838.69889999996}, {"orderkey": 492164, "Revenue": 390324.061}, {"orderkey": 1188320, "Revenue": 384537.9359}, {"orderkey": 2435712, "Revenue": 378673.05580000003}, {"orderkey": 4878020, "Revenue": 378376.7952}, {"orderkey": 5521732, "Revenue": 375153.9215}, {"orderkey": 2628192, "Revenue": 373133.30939999997}, {"orderkey": 993600, "Revenue": 371407.4595}, {"orderkey": 2300070, "Revenue": 367371.1452000001}]

@@ -1,0 +1,15 @@
+SHOW CREATE TABLE lakehouse.gold.q3_top_orders;
+
+"Create Table"
+"CREATE TABLE lakehouse.gold.q3_top_orders (
+   orderkey bigint,
+   revenue double,
+   orderdate date,
+   shippriority integer
+)
+WITH (
+   compression_codec = 'ZSTD',
+   format = 'PARQUET',
+   format_version = 2,
+   location = 's3://lakehouse/warehouse/q3_top_orders-2587e23461e541c882cfc8ccd83c2bda'
+)"

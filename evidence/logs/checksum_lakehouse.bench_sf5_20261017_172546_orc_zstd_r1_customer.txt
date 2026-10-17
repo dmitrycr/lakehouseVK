@@ -1,0 +1,4 @@
+SELECT count(*) AS rows,sum(custkey) AS key_sum,checksum(ROW(t.custkey,t.name,t.address,t.nationkey,t.phone,t.acctbal,t.mktsegment,t.comment)) AS checksum FROM lakehouse.bench_sf5_20261017_172546_orc_zstd_r1.customer t;
+
+"rows","key_sum","checksum"
+"750000","281250375000","61 24 03 10 6c 75 71 4e"

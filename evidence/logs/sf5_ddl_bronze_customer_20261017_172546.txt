@@ -1,0 +1,19 @@
+SHOW CREATE TABLE lakehouse.bench_sf5_20261017_172546_parquet_zstd_r1.customer;
+
+"Create Table"
+"CREATE TABLE lakehouse.bench_sf5_20261017_172546_parquet_zstd_r1.customer (
+   custkey bigint,
+   name varchar,
+   address varchar,
+   nationkey bigint,
+   phone varchar,
+   acctbal double,
+   mktsegment varchar,
+   comment varchar
+)
+WITH (
+   compression_codec = 'ZSTD',
+   format = 'PARQUET',
+   format_version = 2,
+   location = 's3://lakehouse/warehouse/customer-35017e9cd614431f9d7c2e1aca215fe9'
+)"

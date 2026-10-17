@@ -1,0 +1,20 @@
+SHOW CREATE TABLE lakehouse.bronze.orders;
+
+"Create Table"
+"CREATE TABLE lakehouse.bronze.orders (
+   orderkey bigint,
+   custkey bigint,
+   orderstatus varchar,
+   totalprice double,
+   orderdate date,
+   orderpriority varchar,
+   clerk varchar,
+   shippriority integer,
+   comment varchar
+)
+WITH (
+   compression_codec = 'ZSTD',
+   format = 'PARQUET',
+   format_version = 2,
+   location = 's3://lakehouse/warehouse/orders-f0836d280cb042d0965ee7349854664d'
+)"

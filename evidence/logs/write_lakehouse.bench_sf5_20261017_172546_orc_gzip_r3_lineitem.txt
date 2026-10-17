@@ -1,0 +1,4 @@
+CREATE TABLE lakehouse.bench_sf5_20261017_172546_orc_gzip_r3.lineitem WITH (format='ORC',compression_codec='GZIP') AS SELECT * FROM tpch.sf5.lineitem;
+
+Query 20261017_180318_00211_khp7g failed: Task 20261017_180318_00211_khp7g.0.0.0 has not been accessed since 2026-10-17T18:04:46.311938847Z: currentTime 2026-10-17T18:09:01.773644833Z
+

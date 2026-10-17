@@ -1,0 +1,3 @@
+CREATE TABLE lakehouse.benchmark.lineitem_files_20261017_170959 WITH (format='PARQUET',compression_codec='ZSTD') AS SELECT * FROM lakehouse.bronze.lineitem WHERE mod(orderkey / 32,24)=0;
+
+CREATE TABLE: 249501 rows

@@ -1,0 +1,83 @@
+{
+  "run_id": "20261017_172546",
+  "scale": 5,
+  "status": "complete",
+  "schemas": [
+    [
+      "lakehouse.bench_sf5_20261017_172546_parquet_zstd_r1",
+      "PARQUET",
+      "ZSTD",
+      1
+    ],
+    [
+      "lakehouse.bench_sf5_20261017_172546_parquet_gzip_r1",
+      "PARQUET",
+      "GZIP",
+      1
+    ],
+    [
+      "lakehouse.bench_sf5_20261017_172546_orc_zstd_r1",
+      "ORC",
+      "ZSTD",
+      1
+    ],
+    [
+      "lakehouse.bench_sf5_20261017_172546_orc_gzip_r1",
+      "ORC",
+      "GZIP",
+      1
+    ],
+    [
+      "lakehouse.bench_sf5_20261017_172546_parquet_zstd_r2",
+      "PARQUET",
+      "ZSTD",
+      2
+    ],
+    [
+      "lakehouse.bench_sf5_20261017_172546_parquet_gzip_r2",
+      "PARQUET",
+      "GZIP",
+      2
+    ],
+    [
+      "lakehouse.bench_sf5_20261017_172546_orc_zstd_r2",
+      "ORC",
+      "ZSTD",
+      2
+    ],
+    [
+      "lakehouse.bench_sf5_20261017_172546_orc_gzip_r2",
+      "ORC",
+      "GZIP",
+      2
+    ],
+    [
+      "lakehouse.bench_sf5_20261017_172546_parquet_zstd_r3",
+      "PARQUET",
+      "ZSTD",
+      3
+    ],
+    [
+      "lakehouse.bench_sf5_20261017_172546_parquet_gzip_r3",
+      "PARQUET",
+      "GZIP",
+      3
+    ],
+    [
+      "lakehouse.bench_sf5_20261017_172546_orc_zstd_r3",
+      "ORC",
+      "ZSTD",
+      3
+    ],
+    [
+      "lakehouse.bench_sf5_20261017_172546_orc_gzip_r3",
+      "ORC",
+      "GZIP",
+      3
+    ]
+  ],
+  "recovery": "Last ORC/GZIP lineitem CTAS retried after task timeout; first 35 successful timings retained",
+  "medallion_schema": "lakehouse.medallion_sf5_20261017_172546",
+  "verified": true,
+  "free_bytes_after": 46066876416
+}

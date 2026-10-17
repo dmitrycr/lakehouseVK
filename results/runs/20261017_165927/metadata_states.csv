@@ -1,0 +1,4 @@
+stage,table,files,rows,bytes,manifests,manifest_bytes,snapshots
+before,lakehouse.benchmark.lineitem_files_20261017_170959,24,6001215,150775621,24,198088,24
+manifests_optimized,lakehouse.benchmark.lineitem_files_20261017_170959,24,6001215,150775621,1,12450,25
+data_optimized,lakehouse.benchmark.lineitem_files_20261017_170959,1,6001215,146963200,2,20457,26

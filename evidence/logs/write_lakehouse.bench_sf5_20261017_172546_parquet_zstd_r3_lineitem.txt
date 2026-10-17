@@ -1,0 +1,3 @@
+CREATE TABLE lakehouse.bench_sf5_20261017_172546_parquet_zstd_r3.lineitem WITH (format='PARQUET',compression_codec='ZSTD') AS SELECT * FROM tpch.sf5.lineitem;
+
+CREATE TABLE: 29999795 rows

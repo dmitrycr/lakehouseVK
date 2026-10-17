@@ -1,0 +1,7 @@
+kind,objects,bytes
+data_orc,82,1486999832
+metadata_json,91,218218
+other,84,15918216
+manifest,87,724941
+manifest_list,87,405172
+data_parquet,134,2066142844

@@ -1,0 +1,4 @@
+*.csv text eol=lf
+# Preserve exact machine output and archived Markdown, including trailing spaces.
+evidence/logs/** -whitespace
+evidence/archive/** -whitespace

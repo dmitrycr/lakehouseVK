@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scale": 5,
+  "independent_writes": 36,
+  "q3_timed_reads": 20,
+  "all_12_q3_match_reference": true,
+  "all_checksums_match": true,
+  "medallion_schema": "lakehouse.medallion_sf5_20261017_172546",
+  "gold_difference_rows": 0,
+  "quality": {
+    "rows": "150615",
+    "orders": "57097",
+    "revenue": "5465320714.208200",
+    "nulls": "0"
+  },
+  "free_bytes": 46066876416
+}

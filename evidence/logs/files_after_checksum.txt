@@ -1,0 +1,4 @@
+SELECT count(*) AS rows,sum(orderkey) AS keys,sum(extendedprice) AS price,sum(discount) AS discounts FROM lakehouse.benchmark.lineitem_files_20261017_170959;
+
+"rows","keys","price","discounts"
+"6001215","18005322964949","2.2957731090121796E11","300057.32999830454"

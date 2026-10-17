@@ -1,0 +1,35 @@
+{
+  "scope": "Entire lakehouse bucket; includes historical snapshots and all experiments",
+  "groups": {
+    "data_orc": {
+      "kind": "data_orc",
+      "objects": 82,
+      "bytes": 1486999832
+    },
+    "metadata_json": {
+      "kind": "metadata_json",
+      "objects": 91,
+      "bytes": 218218
+    },
+    "other": {
+      "kind": "other",
+      "objects": 84,
+      "bytes": 15918216
+    },
+    "manifest": {
+      "kind": "manifest",
+      "objects": 87,
+      "bytes": 724941
+    },
+    "manifest_list": {
+      "kind": "manifest_list",
+      "objects": 87,
+      "bytes": 405172
+    },
+    "data_parquet": {
+      "kind": "data_parquet",
+      "objects": 134,
+      "bytes": 2066142844
+    }
+  }
+}

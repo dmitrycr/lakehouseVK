@@ -1,0 +1,3 @@
+PASS: all 7 headings and every required table header match the source template.
+PASS: ФИО Дорогов Дмитрий Алексеевич; no unfilled markers.
+PASS: local Markdown targets, Python syntax, CSV arithmetic (36 writes/20 reads), secret scan.

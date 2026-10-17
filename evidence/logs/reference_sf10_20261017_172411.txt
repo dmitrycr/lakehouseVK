@@ -1,0 +1,12 @@
+SELECT l.orderkey, SUM(l.extendedprice*(1-l.discount)) AS revenue,
+       o.orderdate, o.shippriority
+FROM tpch.sf10.customer c
+JOIN tpch.sf10.orders o ON c.custkey=o.custkey
+JOIN tpch.sf10.lineitem l ON l.orderkey=o.orderkey
+WHERE c.mktsegment='BUILDING' AND o.orderdate<DATE '1995-03-15'
+AND l.shipdate>DATE '1995-03-15'
+GROUP BY l.orderkey,o.orderdate,o.shippriority
+ORDER BY revenue DESC, o.orderdate, l.orderkey LIMIT 10;
+
+Query 20261017_172412_00044_khp7g failed: Query exceeded per-node memory limit of 1.84GB [Allocated: 1.83GB, Delta: 9.25MB, Top Consumers: {HashBuilderOperator=1.83GB, PagePartitioner=6.38kB, ScanFilterAndProjectOperator-ConnectorPageSource=3.88kB}]
+

@@ -1,0 +1,8 @@
+ALTER TABLE lakehouse.benchmark.lineitem_files_20261017_170959 EXECUTE optimize_manifests;
+
+ALTER TABLE EXECUTE
+"metric_name","metric_value"
+"rewritten_manifests_count","24"
+"added_manifests_count","1"
+"kept_manifests_count","0"
+"processed_manifest_entries_count","24"

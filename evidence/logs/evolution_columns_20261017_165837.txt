@@ -1,0 +1,12 @@
+SHOW COLUMNS FROM lakehouse.silver.q3_schema_demo_20261017_165837;
+
+"Column","Type","Extra","Comment"
+"custkey","bigint","",""
+"orderkey","bigint","",""
+"linenumber","integer","",""
+"order_date","date","",""
+"shippriority","integer","",""
+"extendedprice","double","",""
+"discount","double","",""
+"line_revenue","double","",""
+"source_system","varchar","",""

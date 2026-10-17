@@ -1,0 +1,4 @@
+SELECT count(*) AS rows,sum(orderkey) AS key_sum,checksum(ROW(t.orderkey,t.custkey,t.orderstatus,t.totalprice,t.orderdate,t.orderpriority,t.clerk,t.shippriority,t.comment)) AS checksum FROM lakehouse.bench_20261017_165927_parquet_gzip_r3.orders t;
+
+"rows","key_sum","checksum"
+"1500000","4499987250000","02 71 ba 9c 19 98 de 39"
